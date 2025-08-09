@@ -29,7 +29,7 @@ export default {
       },
       fontFamily: {
         mono: ["Alexandria", "monospace"],
-        sans: ["Alexandria", "sans-serif"],
+        sans: ["SmileySans", "Alexandria", "sans-serif"],
         kablamo: ["Kablammo", "serif"],
       },
       maxWidth: {

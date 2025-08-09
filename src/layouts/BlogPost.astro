@@ -49,10 +49,17 @@ const getRandomClass = () => {
         <div class="relative mb-20" transition:animate="fade">
           <span class="bg-black bg-opacity-25 w-full h-full absolute"></span>
           <div class="absolute bottom-10 md:left-20 left-6">
-            <h1 class="text-4xl md:text-9xl font-semibold text-shadow">
-              <span class="font-kablamo text-ppink">{title.charAt(0)}</span>{
-                title.slice(1)
-              }
+            <h1 class="text-3xl md:text-8xl font-semibold text-shadow">
+              {title.split('').map(char => {
+              // 检测是否为中文字符
+              if (/[\u4e00-\u9fa5]/.test(char)) {
+      return <span class="font-sans">{char}</span>;
+    } else if (char === title.charAt(0)) {
+      return <span class="font-kablamo text-ppink">{char}</span>;
+    } else {
+      return char;
+    }
+  })}
             </h1>
             <p  set:html={description} />
           </div>
@@ -96,14 +103,14 @@ const getRandomClass = () => {
                 }
               </ul>
               <hr />
-              <p>Written by</p>
+              <p class="font-bold"> written by：</p>
               <div class="flex -mt-4 gap-2">
                   <div class="bg-pgreen rounded-full w-12 h-12 aspect-square object-contain overflow-hidden ">
-                    <Image src={images["/src/assets/hero.png"]()} alt="Fran" />
+                    <Image src={images["/src/assets/yangmin.png"]()} alt="Fran" />
                   </div>
                   <div>
-                  <h3>Joaquín Sorolla</h3>
-                  <p class="text-pblack">UX UI designer based<br>in Steve Jobs</p>
+                  <h3 class="text-2xl">YangMin</h3>
+                  <p class="text-pblack font-sans">一个酷爱训化AI的大男孩</p>
                 </div>
               </div>
               <hr/>
@@ -111,25 +118,25 @@ const getRandomClass = () => {
                 <p>Contributors:</p>
                 <div class="flex items-center gap-6 text-xl">
                   <a
-                    href="https://jramma.com"
+                    href="https://verdant-sale-15e.notion.site/e12267ee82424d8996a2d57ebf9987ca?source=copy_link"
                     target="_blank"
                     class="py-1 pl-3 rounded-md border-1 border-black bg-ppink shadow-card hover:shadow-hover transition"
                   >
                     <Icon name="web" />
                   </a>
                   <a
-                    href="https://github.com/jramma"
+                    href="https://x.com/GogHeng"
                     target="_blank"
                     class="border-1 p-1 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
                   >
-                    <Icon name="github" />
+                    <Icon name="tuite-copy" />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/jramma/"
+                    href="https://www.xiaohongshu.com/user/profile/5657f4380bf90c6a94fd36bf?xhsshare=userQrCode"
                     target="_blank"
                     class="border-1 p-1 border-black rounded-full bg-pgreen shadow-card hover:shadow-hover transition"
                   >
-                    <Icon name="linkedin" />
+                    <Icon name="redbook fill" />
                   </a>
                 </div>
               </div>
